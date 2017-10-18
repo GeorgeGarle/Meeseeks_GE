@@ -8,7 +8,7 @@ namespace meeseeks
 	namespace engine
 	{
 
-		// Do I really need these?
+		
 		int Display::width;
 		int Display::height;
 

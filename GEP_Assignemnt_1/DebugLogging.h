@@ -14,34 +14,16 @@ enum logseverity
 class DebugLogging
 {
 
+
+
 public:
 
-	DebugLogging(logseverity _logseverity = dlERROR)
-	{
-		_sBuffer << DebugSwitch(_logseverity) << " :" << std::string(_logseverity > dlDEBUG ? (_logseverity - dlDEBUG) * 4 : 1, ' ');
-		
-	}
-
-	std::string DebugSwitch(logseverity _logseverity)
-	{
-
-		switch (_logseverity)
-		{
-		
-		case dlINFO:
-		{
-			return "INFO";
-			break;
-		}
-
-		default:
-			break;
-		}
 
 
-		return "ERROR";
+	DebugLogging(logseverity _logseverity = dlERROR);
+	~DebugLogging();
 
-	}
+	std::string DebugSwitch(logseverity _logseverity);
 
 	template <typename T>
 	DebugLogging & operator<<(T const & value)
@@ -52,14 +34,7 @@ public:
 
 	}
 
-	~DebugLogging()
-	{
-
-		_sBuffer << std::endl;
-		std::cerr << _sBuffer.str();
-
-	}
-
+	
 
 private:
 
@@ -131,3 +106,5 @@ if (level > loglevel) ; \
 else logIt(level)
 
 #endif*/
+
+
