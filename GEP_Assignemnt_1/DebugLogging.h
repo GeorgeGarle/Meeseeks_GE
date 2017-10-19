@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <sstream>
+// Used for Console Text Colour
+#include <Windows.h>
 
 enum logseverity
 {

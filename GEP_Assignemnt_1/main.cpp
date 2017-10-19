@@ -53,7 +53,6 @@ int main(int argc, char* argv[])
 	//logTest();
 
 	dLog(dlINFO) << "Farts" << "Test" << "All";
-
 	meeseeks::engine::safe_main(argc, argv);
 
 	return 0;

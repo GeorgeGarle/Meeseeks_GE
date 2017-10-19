@@ -1,4 +1,5 @@
 #include "DebugLogging.h"
+#include <ctype.h>
 
 
 /*
@@ -26,6 +27,7 @@ inverse off      27*/
 DebugLogging::DebugLogging(logseverity _logseverity)
 {
 	// Adds spaces depending on the severity / Log
+	
 	_sBuffer << DebugSwitch(_logseverity) << " :" << std::string(_logseverity > dlDEBUG ? (_logseverity - dlDEBUG) * 4 : 1, ' ');
 
 }
@@ -46,7 +48,14 @@ std::string DebugLogging::DebugSwitch(logseverity _logseverity)
 
 	case dlINFO:
 	{
-		return "INFO";
+		//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED);
+
+		std::cout << "INFO";
+
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN);
+
+		return "\033[1; 33mINFO\033[0m";
 		break;
 	}
 
